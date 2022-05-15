@@ -66,6 +66,15 @@ fajl=Menu(menu1)
 fajl.add_command(label='Nevjegy' ,command= nevjegy, )
 fajl.add_command(label='Kilépés' ,command= foablak.destroy, )
 menu1.config(menu=fajl)
+#fő oldal elrendezés
+cim = Label(foablak,  text='Számítások', font=("Arial", 25))
+foablakkep = Image.open('foablakkep.png')
+meretezes = foablakkep.resize((300, 225), Image.ANTIALIAS)
+meretezett = ImageTk.PhotoImage(meretezes)
+kephez = Label(image= meretezett)
+kephez.pack(side= BOTTOM)
+cim.pack()
+
 # háromszög menüpont
 menu2=Menubutton(menusor, text='Háromszögek', )
 menu2.pack(side=LEFT)
