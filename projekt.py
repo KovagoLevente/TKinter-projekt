@@ -10,7 +10,7 @@ def nevjegy():
     uz2.pack()
     gomb2.pack()
     abl2.pack()
-def derekszog_terulet():
+def h_terulet():
     k='' 
     def szam():
         if not k :
@@ -49,11 +49,8 @@ def derekszog_terulet():
     gomb2=Button(abl3, text='Kilépés' , command=abl3.destroy)
     gomb2.grid(row=6 ,column= 2)
     abl3.mainloop()
-def derekszog_kerulet():
-def egyenloszaru_terulet():
-def egyenloszaru_kerulet():
-def egyenlooldalu_terulet():
-def egyenlooldalu_kerulet():
+def h_kerulet():
+
 
 foablak=Tk()
 
@@ -73,12 +70,9 @@ menu1.config(menu=fajl)
 menu2=Menubutton(menusor, text='Háromszögek', )
 menu2.pack(side=LEFT)
 haromszog=Menu(menu2)
-haromszog.add_command(label='Derékszögü' , command=derekszog_terulet,  )
-haromszog.add_command(label='Derékszögü' , command=derekszog_kerulet,  )
-haromszog.add_command(label='Egyenlő oldalu' , command=egyenloszaru_terulet,  )
-haromszog.add_command(label='Egyenlő oldalu' , command=egyenloszaru_kerulet,  )
-haromszog.add_command(label='Egyelő szárú' , command=,egyenlooldalu_terulet  )
-haromszog.add_command(label='Egyelő szárú' , command=, egyenlooldalu_kerulet )
+haromszog.add_command(label='terület' , command=h_terulet,  )
+haromszog.add_command(label='kerület' , command=h_kerulet,  )
+
 menu2.config(menu=haromszog)
 
 foablak.mainloop()
