@@ -1,4 +1,5 @@
 from tkinter import *
+from PIL import Image,ImageTk
 import math
 
 
@@ -27,7 +28,7 @@ def h_terulet():
             mezo4.delete(0, END)
             mezo4. insert(0, str(terulet))
     abl3= Toplevel(foablak)
-    abl3.title('Felszin')
+    abl3.title('Terület')
     szoveg1=Label(abl3, text='a oldal (cm):')
     szoveg2=Label(abl3, text='b oldal (cm):')
     szoveg3=Label(abl3, text='c oldal (cm):')
@@ -50,6 +51,44 @@ def h_terulet():
     gomb2.grid(row=6 ,column= 2)
     abl3.mainloop()
 def h_kerulet():
+    k='' 
+    def szam():
+        if not k :
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+'Számadatot kell megadni')
+        a=float(mezo1.get())
+        b=float(mezo2.get())
+        c=float(mezo3.get())
+        kerület= a+b+c
+        if a<=0 or b<=0 or c<=0:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str()+' 0 nem lehet ')
+        else:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str(kerület))
+    abl4= Toplevel(foablak)
+    abl4.title('Kerület')
+    szoveg1=Label(abl4, text='a oldal (cm):')
+    szoveg2=Label(abl4, text='b oldal (cm):')
+    szoveg3=Label(abl4, text='c oldal (cm):')
+    szoveg4=Label(abl4, text='Eredmény:')
+    gomb1=Button(abl4, text='Szamitás', command=szam)
+    mezo1= Entry(abl4)
+    mezo2= Entry(abl4)
+    mezo3= Entry(abl4)
+    mezo4= Entry(abl4)
+    szoveg1.grid(row=1)
+    szoveg2.grid(row=2)
+    szoveg3.grid(row=3)
+    szoveg4.grid(row=5)
+    gomb1.grid(row=4 ,column= 2)
+    mezo1.grid(row=1 ,column= 2)
+    mezo2.grid(row=2 ,column= 2)
+    mezo3.grid(row=3 ,column= 2)
+    mezo4.grid(row=5 ,column= 2)
+    gomb2=Button(abl4, text='Kilépés' , command=abl4.destroy)
+    gomb2.grid(row=6 ,column= 2)
+    abl4.mainloop()
 
 
 foablak=Tk()
