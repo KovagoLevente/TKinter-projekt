@@ -94,7 +94,7 @@ def h_kerulet():
 foablak=Tk()
 
 foablak.title("IKT projekt")
-foablak.minsize(width=300, height=300)
+foablak.minsize(width=500, height=500)
 # adatok menűpont
 menusor=Frame(foablak)
 menusor.pack(side=TOP , fill=X)
@@ -106,9 +106,9 @@ fajl.add_command(label='Nevjegy' ,command= nevjegy, )
 fajl.add_command(label='Kilépés' ,command= foablak.destroy, )
 menu1.config(menu=fajl)
 #fő oldal elrendezés
-cim = Label(foablak,  text='Számítások', font=("Arial", 25))
+cim = Label(foablak,  text='Síkidomok kerülete területe számítás', font=("Arial", 25))
 foablakkep = Image.open('foablakkep.png')
-meretezes = foablakkep.resize((300, 225), Image.ANTIALIAS)
+meretezes = foablakkep.resize((550, 500), Image.ANTIALIAS)
 meretezett = ImageTk.PhotoImage(meretezes)
 kephez = Label(image= meretezett)
 kephez.pack(side= BOTTOM)
