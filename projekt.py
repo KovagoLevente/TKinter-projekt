@@ -114,13 +114,25 @@ kephez = Label(image= meretezett)
 kephez.pack(side= BOTTOM)
 cim.pack()
 
-# háromszög menüpont
-menu2=Menubutton(menusor, text='Háromszögek', )
-menu2.pack(side=LEFT)
-haromszog=Menu(menu2)
-haromszog.add_command(label='terület' , command=h_terulet,  )
-haromszog.add_command(label='kerület' , command=h_kerulet,  )
 
-menu2.config(menu=haromszog)
+#menü
+nevjegy0=tk.Menu(menusor, tearoff=0, )
+haromszog0=tk.Menu(menusor, tearoff=0 )
+negyszogek0=tk.Menu(menusor, tearoff=0 )
+kor0=tk.Menu(menusor, tearoff=0 )
+#________________________________________________________________________
+#menüsor
+menusor.add_cascade(label='Névjegy', menu=nevjegy0)
+menusor.add_cascade(label='Háromszög' , menu=haromszog0) # elsö sor 
+menusor.add_cascade(label='Négyszögek', menu=negyszogek0)
+menusor.add_cascade(label='Kör', menu=kor0)
+#________________________________________________________________________
+#Névjegy
+nevjegy0.add_command(label='Nevjegy' ,command= nevjegy, )
+nevjegy0.add_command(label='Kilépés' ,command= foablak.destroy, )
+#________________________________________________________________________
+#Háromszög
+haromszog0.add_command(label='terület' , command=h_terulet,  )
+haromszog0.add_command(label='kerület' , command=h_kerulet,  )
 
 foablak.mainloop()
