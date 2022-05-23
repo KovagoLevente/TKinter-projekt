@@ -1,5 +1,5 @@
 from tkinter import *
-from PIL import Image,ImageTk
+#from PIL import Image,ImageTk
 import math
 
 
@@ -92,47 +92,79 @@ def h_kerulet():
 
 
 foablak=Tk()
-
 foablak.title("IKT projekt")
-foablak.minsize(width=500, height=500)
+foablak.geometry("800x800")
+menubar=Menu(foablak)
 # adatok menűpont
-menusor=Frame(foablak)
-menusor.pack(side=TOP , fill=X)
-
-menu1=Menubutton(menusor, text='Adat', )
-menu1.pack(side=LEFT)
-fajl=Menu(menu1)
-fajl.add_command(label='Nevjegy' ,command= nevjegy, )
-fajl.add_command(label='Kilépés' ,command= foablak.destroy, )
-menu1.config(menu=fajl)
-#fő oldal elrendezés
-cim = Label(foablak,  text='Síkidomok kerülete területe számítás', font=("Arial", 25))
-foablakkep = Image.open('foablakkep.png')
-meretezes = foablakkep.resize((550, 500), Image.ANTIALIAS)
-meretezett = ImageTk.PhotoImage(meretezes)
-kephez = Label(image= meretezett)
-kephez.pack(side= BOTTOM)
-cim.pack()
+file = Menu(menubar, tearoff=0)
 
 
-#menü
-nevjegy0=tk.Menu(menusor, tearoff=0, )
-haromszog0=tk.Menu(menusor, tearoff=0 )
-negyszogek0=tk.Menu(menusor, tearoff=0 )
-kor0=tk.Menu(menusor, tearoff=0 )
-#________________________________________________________________________
-#menüsor
-menusor.add_cascade(label='Névjegy', menu=nevjegy0)
-menusor.add_cascade(label='Háromszög' , menu=haromszog0) # elsö sor 
-menusor.add_cascade(label='Négyszögek', menu=negyszogek0)
-menusor.add_cascade(label='Kör', menu=kor0)
-#________________________________________________________________________
-#Névjegy
-nevjegy0.add_command(label='Nevjegy' ,command= nevjegy, )
-nevjegy0.add_command(label='Kilépés' ,command= foablak.destroy, )
-#________________________________________________________________________
-#Háromszög
-haromszog0.add_command(label='terület' , command=h_terulet,  )
-haromszog0.add_command(label='kerület' , command=h_kerulet,  )
+#első gomb
+
+menubar.add_command(label="Névjegy", command = nevjegy)
+menubar.add_command(label="Kilépés", command = foablak.destroy)
+file.add_cascade(label='Névjegy', menu=menubar)
+foablak.config(menu=menubar) 
+#második gomb a menüsávon vége
+
+
+
+
+#háromszög menü gomb kezdete
+haromszög = Menu(file, tearoff=0)
+haromszög.add_command(label="Kerület", command=h_kerulet)
+haromszög.add_command(label="Terület" , command=h_terulet)
+file.add_cascade(label='Háromszög', menu=haromszög)
+
+ 
+#trapéz menü gomb kezdete
+trapéz = Menu(file, tearoff=0)
+trapéz.add_command(label="Kerület")
+trapéz.add_command(label="Terület")
+file.add_cascade(label='Trapéz', menu=trapéz)
+
+
+#paralelogramma menü gomb kezdete
+Paralelogramma = Menu(file, tearoff=0)
+Paralelogramma.add_command(label="Kerület")
+Paralelogramma.add_command(label="Terület")
+file.add_cascade(label='Paralelogramma', menu=Paralelogramma)
+
+
+#téglalap menü gomb kezdete
+teglalap = Menu(file, tearoff=0)
+teglalap.add_command(label="Kerület")
+teglalap.add_command(label="Terület")
+file.add_cascade(label='Téglalap', menu=teglalap)
+
+
+#deltoid menü gomb kezdete
+deltoid = Menu(file, tearoff=0)
+deltoid.add_command(label="Kerület")
+deltoid.add_command(label="Terület")
+file.add_cascade(label='Deltoid', menu=deltoid)
+
+#rombusz menü gomb kezdete
+rombusz = Menu(file, tearoff=0)
+rombusz.add_command(label="Kerület")
+rombusz.add_command(label="Terület")
+file.add_cascade(label='Rombusz', menu=rombusz)
+
+
+#négyzet menü gomb kezdete
+negyzet = Menu(file, tearoff=0)
+negyzet.add_command(label="Kerület")
+negyzet.add_command(label="Terület")
+file.add_cascade(label='Négyzet', menu=negyzet)
+
+
+#kör menü gomb kezdete
+kor = Menu(file, tearoff=0)
+kor.add_command(label="Kerület")
+kor.add_command(label="Terület")
+file.add_cascade(label='Kör', menu=kor)
+
+
+foablak.config(menu=menubar) 
 
 foablak.mainloop()
