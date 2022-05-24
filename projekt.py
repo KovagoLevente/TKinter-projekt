@@ -103,7 +103,7 @@ def teglalap_kerulet():
         else:
             mezo4.delete(0, END)
             mezo4. insert(0, str(kerület))
-    #tegllap kerület oldal
+    #teglalap kerület oldal
     abl5= Toplevel(foablak)
     abl5.title('Kerület')
     szoveg1=Label(abl5, text='a oldal (cm):')
@@ -122,12 +122,52 @@ def teglalap_kerulet():
     mezo4.grid(row=5 ,column= 2)
     gomb2=Button(abl5, text='Kilépés' , command=abl5.destroy)
     gomb2.grid(row=6 ,column= 2)
-    #tegllap rajzolás
+    #teglalap rajzolás
     teglalapkeruletcanvas = Canvas(abl5, width = 200, height = 150, bg = "white")
     teglalapkeruletcanvas.create_rectangle(30, 30, 180, 120, outline="#000000",fill="#fb0")
     teglalapkeruletcanvas.grid(column = 4, row = 1, rowspan = 7)
     abl5.mainloop()
-
+  
+def teglalap_területe():
+    t=''
+    def szam():
+        if not t:
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+'Számadatot kell megadni')
+        a=float(mezo1.get())
+        b=float(mezo2.get())
+        terület= a*b
+        if a<=0 or b<=0:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str()+' 0 nem lehet ')
+        else:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str(kerület))
+    #teglalap terület oldal
+    abl5= Toplevel(foablak)
+    abl5.title('Terület')
+    szoveg1=Label(abl5, text='a oldal (cm):')
+    szoveg2=Label(abl5, text='b oldal (cm):')
+    szoveg4=Label(abl5, text='Eredmény:')
+    gomb1=Button(abl5, text='Szamitás', command=szam)
+    mezo1= Entry(abl5)
+    mezo2= Entry(abl5)
+    mezo4= Entry(abl5)
+    szoveg1.grid(row=1)
+    szoveg2.grid(row=2)
+    szoveg4.grid(row=5)
+    gomb1.grid(row=4 ,column= 2)
+    mezo1.grid(row=1 ,column= 2)
+    mezo2.grid(row=2 ,column= 2)
+    mezo4.grid(row=5 ,column= 2)
+    gomb2=Button(abl5, text='Kilépés' , command=abl5.destroy)
+    gomb2.grid(row=6 ,column= 2)
+    #teglalap rajzolás
+    teglalapkeruletcanvas = Canvas(abl5, width = 200, height = 150, bg = "white")
+    teglalapkeruletcanvas.create_rectangle(30, 30, 180, 120, outline="#000000",fill="#fb0")
+    teglalapkeruletcanvas.grid(column = 4, row = 1, rowspan = 7)
+    abl5.mainloop()
+    
 foablak=Tk()
 foablak.title("IKT projekt")
 menubar=Menu(foablak)  
