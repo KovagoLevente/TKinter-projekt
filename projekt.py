@@ -267,6 +267,80 @@ def trapez_terulet():
     trapezrajz.create_line(15, 125, 60, 50, fill = "black", width = 4)
     trapezrajz.create_line(185, 125, 140, 50, fill = "black", width = 4)
     trapezrajz.grid(column = 4, row = 1, rowspan = 7)
+    
+# négyzet terület kerület és rajz 
+def negyzet_kerulet():
+    k=''
+    def szam():
+        if not k :
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+'Nem szám.')
+        a=float(mezo1.get())
+        kerület= 4*a
+        if a<=0:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str()+' 0 nem lehet. ')
+        else:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str(kerület))
+
+    #négyzet kerületének az oldala
+    abl7= Toplevel(foablak)
+    abl7.title('Kerület')
+    szoveg1=Label(abl7, text='a oldal (cm):')
+    szoveg4=Label(abl7, text='Eredmény:')
+    gomb1=Button(abl7, text='Számitás', command=szam)
+    mezo1= Entry(abl7)
+    mezo2= Entry(abl7)
+    mezo4= Entry(abl7)
+    szoveg1.grid(row=1)
+    szoveg4.grid(row=5)
+    gomb1.grid(row=4 ,column= 2)
+    mezo1.grid(row=1 ,column= 2)
+    mezo4.grid(row=5 ,column= 2)
+    gomb2=Button(abl7, text='Kilépés' , command=abl7.destroy)
+    gomb2.grid(row=6 ,column= 2)
+    #négyzet rajzolás
+    negyzetkeruletcanvas = Canvas(abl7, width = 200, height = 200, bg = "white")
+    negyzetkeruletcanvas.create_rectangle(60, 60, 180, 180, outline = 'black')
+    negyzetkeruletcanvas.grid(column = 4, row = 1, rowspan = 7)
+    abl7.mainloop()
+def negyzet_terulet():
+    t=''
+    def szam():
+        if not t:
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+'Számadatot kell megadni.')
+        a=float(mezo1.get())
+        terulet= a*a
+        if a<=0:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str()+' 0 nem lehet. ')
+        else:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str(terulet))
+    #tnégyzet terület oldal
+    abl8= Toplevel(foablak)
+    abl8.title('Terület')
+    szoveg1=Label(abl8, text='a oldal (cm):')
+    szoveg4=Label(abl8, text='Eredmény:')
+    gomb1=Button(abl8, text='Számitás', command=szam)
+    mezo1= Entry(abl8)
+    mezo2= Entry(abl8)
+    mezo4= Entry(abl8)
+    szoveg1.grid(row=1)
+    szoveg4.grid(row=5)
+    gomb1.grid(row=3 ,column= 2)
+    mezo1.grid(row=1 ,column= 2)
+    mezo4.grid(row=5 ,column= 2)
+    gomb2=Button(abl8, text='Kilépés' , command=abl8.destroy)
+    gomb2.grid(row=6 ,column= 2)
+    #négyzet rajz
+    negyzetkeruletcanvas = Canvas(abl8, width = 200, height = 200, bg = "white")
+    negyzetkeruletcanvas.create_rectangle(60, 60, 180, 180, outline = 'black')
+    negyzetkeruletcanvas.grid(column = 4, row = 1, rowspan = 7)
+    abl8.mainloop()
+    
 foablak=Tk()
 foablak.title("IKT projekt")
 menubar=Menu(foablak)  
@@ -316,8 +390,8 @@ deltoid_menu.add_command(label='Terület', )
 deltoid_menu.add_command(label='Kerület', )
 
 negyzet_menu = Menu(negyszog_menu, tearoff=0)
-negyzet_menu.add_command(label='Terület', )
-negyzet_menu.add_command(label='Kerület', )
+negyzet_menu.add_command(label='Terület',command=negyzet_terulet)
+negyzet_menu.add_command(label='Kerület',command=negyzet_kerulet)
 
 rombusz_menu = Menu(negyszog_menu, tearoff=0)
 rombusz_menu.add_command(label='Terület', )
