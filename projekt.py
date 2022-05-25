@@ -340,6 +340,94 @@ def negyzet_terulet():
     negyzetkeruletcanvas.create_rectangle(50, 50, 160, 160, fill = "orange", outline = 'black')
     negyzetkeruletcanvas.grid(column = 3, row = 1, rowspan = 7)
     abl8.mainloop()
+#paralelgramma terült, kerület és rajz
+def paralelogramma_kerulet():
+    k=''
+    def szam():
+        if not k:
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+'Számadatot kell megadni.')
+        a=float(mezo1.get())
+        b=float(mezo2.get())
+        kerulet= 2*(a+b)
+        if a<=0:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str()+' 0 nem lehet. ')
+        else:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str(kerulet))
+    #paralelogramma kerület oldal
+    abl9= Toplevel(foablak)
+    abl9.title('Kerület')
+    szoveg1=Label(abl9, text='a oldal (cm):')
+    szoveg2=Label(abl9, text='b oldal (cm):')
+    szoveg4=Label(abl9, text='Eredmény:')
+    gomb1=Button(abl9, text='Számitás', command=szam)
+    mezo1= Entry(abl9)
+    mezo2= Entry(abl9)
+    mezo4= Entry(abl9)
+    szoveg1.grid(row=1)
+    szoveg4.grid(row=5)
+    gomb1.grid(row=3 ,column= 2)
+    mezo1.grid(row=1 ,column= 2)
+    mezo2.grid(row=2 ,column= 2)
+    mezo4.grid(row=5 ,column= 2)
+    szoveg2.grid(row=2)
+    gomb2=Button(abl9, text='Kilépés' , command=abl9.destroy)
+    gomb2.grid(row=6 ,column= 2)
+    #paralelogramma rajz
+    paralelogrammacanvas = Canvas(abl9, width=150, height=150, bg="white")
+    paralelogrammacanvas.create_polygon(65, 55, 37.5, 110, 110, 110, 135, 55, outline = "black", fill='white')
+    paralelogrammacanvas.create_line(65, 55, 37.5, 110, )
+    paralelogrammacanvas.create_line(65, 55, 135, 55, )    
+    paralelogrammacanvas.grid(row=1, column=4, rowspan=7)
+    abl9.mainloop()    
+def paralelogramma_terulet():
+    t=''
+    def szam():
+        if not t:
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+'Számadatot kell megadni.')
+        a=float(mezo1.get())
+        b=float(mezo2.get())
+        m=float(mezo3.get())
+        terulet= a*m
+        if a<=0:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str()+' 0 nem lehet. ')
+        else:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str(terulet))
+    #paralelogramma terület oldal
+    abl9= Toplevel(foablak)
+    abl9.title('Terület')
+    szoveg1=Label(abl9, text='a oldal (cm):')
+    szoveg2=Label(abl9, text='b oldal (cm):')
+    szoveg3=Label(abl9, text='magasság (cm):')
+    szoveg4=Label(abl9, text='Eredmény:')
+    gomb1=Button(abl9, text='Számitás', command=szam)
+    mezo1= Entry(abl9)
+    mezo2= Entry(abl9)
+    mezo4= Entry(abl9)
+    mezo3= Entry(abl9)
+    szoveg1.grid(row=1)
+    szoveg2.grid(row=2)
+    szoveg3.grid(row=3)
+    szoveg4.grid(row=6)
+    gomb1.grid(row=4 ,column= 2)
+    mezo1.grid(row=1 ,column= 2)
+    mezo2.grid(row=2 ,column= 2)
+    mezo3.grid(row=3 ,column= 2)
+    mezo4.grid(row=6 ,column= 2)
+    gomb2=Button(abl9, text='Kilépés' , command=abl9.destroy)
+    gomb2.grid(row=7 ,column= 2)
+    #paralelogramma rajz
+    paralelogrammacanvas = Canvas(abl9, width=150, height=150, bg="white")
+    paralelogrammacanvas.create_polygon(65, 55, 37.5, 110, 110, 110, 135, 55, outline = "black", fill='white')
+    paralelogrammacanvas.create_line(65, 55, 37.5, 110, )
+    paralelogrammacanvas.create_line(65, 55, 135, 55, )    
+    paralelogrammacanvas.grid(row=1, column=4, rowspan=7)
+    abl9.mainloop()    
     
 foablak=Tk()
 foablak.title("IKT projekt")
@@ -378,8 +466,8 @@ trapez_menu.add_command(label='Terület', command=trapez_terulet)
 trapez_menu.add_command(label='Kerület', command=trapez_kerulet)
 
 paralelogramma_menu = Menu(negyszog_menu, tearoff=0)
-paralelogramma_menu.add_command(label='Terület',)
-paralelogramma_menu.add_command(label='Kerület',)
+paralelogramma_menu.add_command(label='Terület', command=paralelogramma_kerulet)    
+paralelogramma_menu.add_command(label='Kerület',command=paralelogramma_terulet)
 
 teglalap_menu = Menu(negyszog_menu, tearoff=0)
 teglalap_menu.add_command(label='Terület', command=teglalap_terület )
