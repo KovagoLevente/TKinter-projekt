@@ -49,6 +49,10 @@ def h_terulet():
     mezo4.grid(row=5 ,column= 2)
     gomb2=Button(abl3, text='Kilépés' , command=abl3.destroy)
     gomb2.grid(row=6 ,column= 2)
+    #Háromszög rajz
+    c = Canvas(abl3, width=110, height=130, bg="white")
+    c.create_polygon((30, 90, 60, 30, 90, 90), outline="#000000", fill="orange")  
+    c.grid(row=1, column=4, rowspan=6)
     abl3.mainloop()
 def h_kerulet():
     k='' 
@@ -88,6 +92,10 @@ def h_kerulet():
     mezo4.grid(row=5 ,column= 2)
     gomb2=Button(abl4, text='Kilépés' , command=abl4.destroy)
     gomb2.grid(row=6 ,column= 2)
+    #Háromszög rajz
+    c = Canvas(abl4, width=110, height=130, bg="white")
+    c.create_polygon((30, 90, 60, 30, 90, 90), outline="#000000", fill="orange")  
+    c.grid(row=1, column=4, rowspan=6)
     abl4.mainloop()
 def teglalap_kerulet():
     k=''
