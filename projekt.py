@@ -709,8 +709,8 @@ negyzet_menu.add_command(label='Terület',command=negyzet_terulet)
 negyzet_menu.add_command(label='Kerület',command=negyzet_kerulet)
 
 rombusz_menu = Menu(negyszog_menu, tearoff=0)
-rombusz_menu.add_command(label='Terület', )
-rombusz_menu.add_command(label='Kerület', )
+rombusz_menu.add_command(label='Terület', command=rombusz_terulet)
+rombusz_menu.add_command(label='Kerület', command=rombusz_kerulet)
 
 negyszog_menu.add_cascade(label='Trapéz' , menu=trapez_menu )
 negyszog_menu.add_cascade(label='Paralelogramma' , menu= paralelogramma_menu )
