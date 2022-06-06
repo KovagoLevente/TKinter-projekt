@@ -1,6 +1,6 @@
 from re import L
 from tkinter import *
-from PIL import Image,ImageTk
+
 import math
 
 # nevjegy
@@ -275,7 +275,7 @@ def trapez_terulet():
     trapezrajz.create_line(15, 125, 60, 50, fill = "black", width = 4)
     trapezrajz.create_line(185, 125, 140, 50, fill = "black", width = 4)
     trapezrajz.grid(column = 4, row = 1, rowspan = 7)
-    
+    abl6.mainloop()
 # négyzet terület kerület és rajz 
 def negyzet_kerulet():
     k=''
@@ -515,7 +515,147 @@ def paralelogramma_terulet():
     paralelogrammacanvas.create_line(65, 55, 135, 55, )    
     paralelogrammacanvas.grid(row=1, column=4, rowspan=7)
     abl9.mainloop()    
+def kor_kerulet():
+    k=''
+    def szam():
+        if not k :
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+'Számadatot kell megadni')
+        r=float(mezo1.get())
+        kerület=2*r*math.pi
+        if r<=0 :
+            mezo4.delete(0, END)
+            mezo4. insert(0, str()+' 0 nem lehet ')
+        else:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str(kerület))
+    #kör kerület oldal
+    abl6= Toplevel(foablak)
+    abl6.title('Kerület')
+    szoveg1=Label(abl6, text='r sugár (cm):')
+    szoveg4=Label(abl6, text='Eredmény:')
+    gomb1=Button(abl6, text='Szamitás', command=szam)
+    mezo1= Entry(abl6)
+    mezo4= Entry(abl6)
+    szoveg1.grid(row=1)
+    szoveg4.grid(row=5)
+    gomb1.grid(row=5 ,column= 2)
+    mezo1.grid(row=1 ,column= 2)
+    mezo4.grid(row=6 ,column= 2)
+    gomb2=Button(abl6, text='Kilépés' , command=abl6.destroy)
+    gomb2.grid(row=7 ,column= 2)
+    kor = Canvas(abl8, width = 200, height = 205, bg = "white")
+    kor.create_oval(50, 50, 200, 200, fill = "orange", outline = 'black')
+    kor.grid(column = 3, row = 1, rowspan = 7)
+    abl6.mainloop()
+def kor_terulet():
+    k=''
+    def szam():
+        if not k :
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+'Számadatot kell megadni')
+        r=float(mezo1.get())
+        kerület=r*r*math.pi
+        if r<=0 :
+            mezo4.delete(0, END)
+            mezo4. insert(0, str()+' 0 nem lehet ')
+        else:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str(kerület))
+    #kör terület oldal
+    abl6= Toplevel(foablak)
+    abl6.title('Kerület')
+    szoveg1=Label(abl6, text='r sugár (cm):')
+    szoveg4=Label(abl6, text='Eredmény:')
+    gomb1=Button(abl6, text='Szamitás', command=szam)
+    mezo1= Entry(abl6)
+    mezo4= Entry(abl6)
+    szoveg1.grid(row=1)
+    szoveg4.grid(row=5)
+    gomb1.grid(row=5 ,column= 2)
+    mezo1.grid(row=1 ,column= 2)
+    mezo4.grid(row=6 ,column= 2)
+    gomb2=Button(abl6, text='Kilépés' , command=abl6.destroy)
+    gomb2.grid(row=7 ,column= 2)
+    kor = Canvas(abl8, width = 200, height = 205, bg = "white")
+    kor.create_oval(50, 50, 200, 200, fill = "orange", outline = 'black')
+    kor.grid(column = 3, row = 1, rowspan = 7)
+    abl6.mainloop()
+def rombusz_terulet():
+    t=''
+    def szam():
+        if not t:
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+'Számadatot kell megadni')
+        a=float(mezo1.get())
+        m=float(mezo2.get())
+        terület= a*b
+        if a<=0 or m<=0:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str()+' 0 nem lehet ')
+        else:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str(kerület))
+    #teglalap terület oldal
+    abl5= Toplevel(foablak)
+    abl5.title('Terület')
+    szoveg1=Label(abl5, text='a oldal (cm):')
+    szoveg2=Label(abl5, text='m magaság (cm):')
+    szoveg4=Label(abl5, text='Eredmény:')
+    gomb1=Button(abl5, text='Szamitás', command=szam)
+    mezo1= Entry(abl5)
+    mezo2= Entry(abl5)
+    mezo4= Entry(abl5)
+    szoveg1.grid(row=1)
+    szoveg2.grid(row=2)
+    szoveg4.grid(row=5)
+    gomb1.grid(row=4 ,column= 2)
+    mezo1.grid(row=1 ,column= 2)
+    mezo2.grid(row=2 ,column= 2)
+    mezo4.grid(row=5 ,column= 2)
+    gomb2=Button(abl5, text='Kilépés' , command=abl5.destroy)
+    gomb2.grid(row=6 ,column= 2)
+    w = Canvas(teruletablak, width=220, height=200)
+    w.create_polygon(50,85,125,10,200,85,125,160, fill="#A8C989", outline = 'black')
+    w.create_line(50,85,125,10, fill="red", width=4)
+    w.grid(row = 2, column = 4, rowspan=7, sticky = E)
+    abl5.mainloop()
+def rombusz_kerulet():
+    k=''
+    def szam():
+        if not k :
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+'Nem szám.')
+        a=float(mezo1.get())
+        kerület= 4*a
+        if a<=0:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str()+' 0 nem lehet. ')
+        else:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str(kerület))
+
+    #négyzet kerületének az oldala
+    abl7= Toplevel(foablak)
+    abl7.title('Kerület')
+    szoveg1=Label(abl7, text='a oldal (cm):')
+    szoveg4=Label(abl7, text='Eredmény:')
+    gomb1=Button(abl7, text='Számitás', command=szam)
+    mezo1= Entry(abl7)
     
+    mezo4= Entry(abl7)
+    szoveg1.grid(row=1)
+    szoveg4.grid(row=4)
+    gomb1.grid(row=2,column= 2)
+    mezo1.grid(row=1 ,column= 2)
+    mezo4.grid(row=4 ,column= 2)
+    gomb2=Button(abl7, text='Kilépés' , command=abl7.destroy)
+    gomb2.grid(row=6 ,column= 2)
+    w = Canvas(teruletablak, width=220, height=200)
+    w.create_polygon(50,85,125,10,200,85,125,160, fill="#A8C989", outline = 'black')
+    w.create_line(50,85,125,10, fill="red", width=4)
+    w.grid(row = 2, column = 4, rowspan=7, sticky = E)
+    abl7.mainloop()
 foablak=Tk()
 foablak.title("IKT projekt")
 menubar=Menu(foablak)  
@@ -583,10 +723,9 @@ menubar.add_cascade( label="Négyszögek", menu=negyszog_menu, underline=0)
 
 #kör
 kor_menu = Menu( menubar, tearoff=0 )
-kor_menu.add_command(label='Terület' , )
-kor_menu.add_command(label='Kerület' , )
+kor_menu.add_command(label='Terület' ,command=kor_terulet )
+kor_menu.add_command(label='Kerület' ,command=kor_kerulet)
 kor_menu.add_separator()
 menubar.add_cascade( label="Kör", menu=kor_menu, underline=0)
-
 
 foablak.mainloop()
