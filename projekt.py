@@ -348,7 +348,86 @@ def negyzet_terulet():
     negyzetkeruletcanvas.create_rectangle(50, 50, 160, 160, fill = "orange", outline = 'black')
     negyzetkeruletcanvas.grid(column = 3, row = 1, rowspan = 7)
     abl8.mainloop()
-#paralelgramma terült, kerület és rajz
+  #deltoid terulet kerulet rajz
+def deltoid_kerulet():
+    k=''
+    def szam():
+        if not k :
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+'Nem szám.')
+        a=float(mezo1.get())
+        b=float(mezo2.get())
+        kerület= (a+b)*2
+        if a<=0 or b<=0:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str()+' 0 nem lehet. ')
+        else:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str(kerület))
+# Deltoid keruletenek oldala
+    abl11= Toplevel(foablak)
+    abl11.title('Kerület')
+    szoveg1=Label(abl11, text='a oldal (cm):')
+    szoveg2=Label(abl11, text='b oldal (cm):')
+    szoveg4=Label(abl11, text='Eredmény:')
+    gomb1=Button(abl11, text='Számitás', command=szam)
+    mezo1= Entry(abl11)
+    mezo2= Entry(abl11)
+    mezo4= Entry(abl11)
+    szoveg1.grid(row=1)
+    szoveg2.grid(row=2)
+    szoveg4.grid(row=4)
+    gomb1.grid(row=3,column= 2)
+    mezo1.grid(row=1 ,column= 2)
+    mezo2.grid(row=2 ,column=2)
+    mezo4.grid(row=4 ,column= 2)
+    gomb2=Button(abl11, text='Kilépés' , command=abl11.destroy)
+    gomb2.grid(row=6 ,column= 2)
+    #négyzet rajz
+    deltoidkeruletcanvas = Canvas(abl11, width = 200, height = 205, bg = "white")
+    deltoidkeruletcanvas.create_rectangle(50, 50, 160, 160, fill = "orange", outline = 'black')
+    deltoidkeruletcanvas.grid(column = 3, row = 1, rowspan = 7)
+    abl11.mainloop()
+# deltoid terulet 
+def deltoid_terulet():
+    k=''
+    def szam():
+        if not k :
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+'Nem szám.')
+        e=float(mezo1.get())
+        f=float(mezo2.get())
+        terület= (e*f)/2
+        if e<=0 or f<=0:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str()+' 0 nem lehet. ')
+        else:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str(terület))
+    abl12= Toplevel(foablak)
+    abl12.title('Terület')
+    szoveg1=Label(abl12, text='e átló (cm):')
+    szoveg2=Label(abl12, text='f átló (cm):')
+    szoveg4=Label(abl12, text='Eredmény:')
+    gomb1=Button(abl12, text='Számitás', command=szam)
+    mezo1= Entry(abl12)
+    mezo2= Entry(abl12)
+    mezo4= Entry(abl12)
+    szoveg1.grid(row=1)
+    szoveg2.grid(row=2)
+    szoveg4.grid(row=4)
+    gomb1.grid(row=3,column= 2)
+    mezo1.grid(row=1 ,column= 2)
+    mezo2.grid(row=2,column=2)
+    mezo4.grid(row=4 ,column= 2)
+    gomb2=Button(abl12, text='Kilépés' , command=abl12.destroy)
+    gomb2.grid(row=6 ,column= 2)
+    #deltoid rajz
+    deltoidteruletcanvas = Canvas(abl12, width = 200, height = 205, bg = "white")
+    deltoidteruletcanvas.create_rectangle(50, 50, 160, 160, fill = "orange", outline = 'black')
+    deltoidteruletcanvas.grid(column = 3, row = 1, rowspan = 7)
+    abl12.mainloop()
+#paralelogramma terület, kerület és rajz
 def paralelogramma_kerulet():
     k=''
     def szam():
