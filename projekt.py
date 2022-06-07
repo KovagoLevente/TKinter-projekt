@@ -701,8 +701,8 @@ teglalap_menu.add_command(label='Terület', command=teglalap_terület )
 teglalap_menu.add_command(label='Kerület', command=teglalap_kerulet )
 
 deltoid_menu = Menu(negyszog_menu, tearoff=0)
-deltoid_menu.add_command(label='Terület', )
-deltoid_menu.add_command(label='Kerület', )
+deltoid_menu.add_command(label='Terület', command=deltoid_terulet)
+deltoid_menu.add_command(label='Kerület', command=deltoid_kerulet)
 
 negyzet_menu = Menu(negyszog_menu, tearoff=0)
 negyzet_menu.add_command(label='Terület',command=negyzet_terulet)
