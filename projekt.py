@@ -385,7 +385,7 @@ def deltoid_kerulet():
     gomb2=Button(abl11, text='Kilépés' , command=abl11.destroy)
     gomb2.grid(row=6 ,column= 2)
     #deltoid rajz
-    deltoidkeruletcanvas = Canvas(abl11, width=220, height=220, bg = "white")
+    deltoidkeruletcanvas = Canvas(abl11, width=230, height=200, bg = "white")
     deltoidkeruletcanvas.create_polygon(50,85,125,10,200,85,125,175, fill="orange", outline = 'black')
     deltoidkeruletcanvas.grid(column = 3, row = 1, rowspan = 7)
     abl11.mainloop()
@@ -424,7 +424,7 @@ def deltoid_terulet():
     gomb2=Button(abl12, text='Kilépés' , command=abl12.destroy)
     gomb2.grid(row=6 ,column= 2)
     #deltoid rajz
-    deltoidteruletcanvas = Canvas(abl12, width=220, height=220, bg = "white")
+    deltoidteruletcanvas = Canvas(abl12, width=230, height=200, bg = "white")
     deltoidteruletcanvas.create_polygon(50,85,125,10,200,85,125,175, fill="orange", outline = 'black')
     deltoidteruletcanvas.grid(column = 3, row = 1, rowspan = 7)
     abl12.mainloop()
